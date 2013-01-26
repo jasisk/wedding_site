@@ -1,6 +1,6 @@
 require 'sinatra'
 
-DEFALT_BRIDE = {:firstname => "Rachel", :lastname => "Zettel"}
+DEFAULT_BRIDE = {:firstname => "Rachel", :lastname => "Zettel"}
 
 get '/' do
   @page_title = set_title('Home')
@@ -53,10 +53,10 @@ end
 helpers do
 
   def current_bride_firstname
-    @current_bride_firstname = params[:bride_firstname] || DEFALT_BRIDE[:firstname]
+    @current_bride_firstname = params[:bride_firstname] || DEFAULT_BRIDE[:firstname]
   end
 
   def current_bride_lastname
-    @current_bride_lastname = params[:bride_lastname] || DEFALT_BRIDE[:lastname]
+    @current_bride_lastname = params[:bride_lastname] || DEFAULT_BRIDE[:lastname]
   end
 end
