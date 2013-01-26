@@ -1,5 +1,7 @@
 require 'sinatra'
 
+DEFALT_BRIDE = {:firstname => "Rachel", :lastname => "Zettel"}
+
 get '/' do
   @page_title = set_title('Home')
 
@@ -45,5 +47,16 @@ end
 ###########
 
 def set_title(page_name)
-  "Macasek + Zettel Wedding - #{page_name}"
+  "Macasek + #{current_bride_lastname} Wedding - #{page_name}"
+end
+
+helpers do
+
+  def current_bride_firstname
+    @current_bride_firstname = params[:bride_firstname] || DEFALT_BRIDE[:firstname]
+  end
+
+  def current_bride_lastname
+    @current_bride_lastname = params[:bride_lastname] || DEFALT_BRIDE[:lastname]
+  end
 end
